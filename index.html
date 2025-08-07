@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BreakMate – Web Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="brand"><div class="heart"></div><span>BreakMate</span></div>
+    <div class="steps">
+      <button class="step-btn" data-step="home">Home</button>
+      <button class="step-btn" data-step="tones">Tone</button>
+      <button class="step-btn" data-step="input">Input</button>
+      <button class="step-btn" data-step="output">Message</button>
+      <button class="step-btn" data-step="journal">Journal</button>
+    </div>
+  </header>
+
+  <!-- HOME -->
+  <section class="view active" id="view-home">
+    <h1>Break up without breaking down.</h1>
+    <p class="sub">Find the right words with AI. Empathy-first, clear and kind.</p>
+    <button id="cta-start" class="primary">Get Started</button>
+  </section>
+
+  <!-- TONES -->
+  <section class="view" id="view-tones">
+    <h2>Choose your tone</h2>
+    <div class="tones">
+      <label class="tone"><input type="radio" name="tone" value="Clean Cut" checked> Clean Cut</label>
+      <label class="tone"><input type="radio" name="tone" value="Soft Exit"> Soft Exit</label>
+      <label class="tone"><input type="radio" name="tone" value="Honest Clarity"> Honest Clarity</label>
+    </div>
+    <button class="primary next" data-next="input">Continue</button>
+  </section>
+
+  <!-- INPUT -->
+  <section class="view" id="view-input">
+    <h2>Tell us the context</h2>
+    <div class="form">
+      <label>Relationship duration
+        <input id="duration" placeholder="e.g., 14 months">
+      </label>
+      <label>Main reason (brief)
+        <input id="reason" placeholder="e.g., growing apart / values misaligned">
+      </label>
+      <label>Things I want to say (optional)
+        <textarea id="notes" rows="4" placeholder="Any specifics you want captured…"></textarea>
+      </label>
+      <div class="voice-row">
+        <button id="voice-btn" class="secondary" type="button">🎤 Voice to text</button>
+        <span id="voice-status"></span>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="secondary prev" data-prev="tones">Back</button>
+      <button id="generate-btn" class="primary">Generate message</button>
+    </div>
+    <p class="hint">Free tier: 2 messages. After that, the journal & coaching unlock is required.</p>
+  </section>
+
+  <!-- OUTPUT -->
+  <section class="view" id="view-output">
+    <h2>Your messages</h2>
+    <div id="outputs" class="outputs"></div>
+    <div class="actions">
+      <button class="secondary prev" data-prev="input">Back</button>
+      <button id="copy-btn" class="primary">Copy best message</button>
+      <button class="secondary" id="go-journal">Journal / Next steps</button>
+    </div>
+  </section>
+
+  <!-- JOURNAL / PAYWALL -->
+  <section class="view" id="view-journal">
+    <h2>Aftercare & journaling</h2>
+    <div id="paywall" class="paywall">
+      <p>Unlock BreakMate Aftercare: guided journaling, affirmations, and clarity prompts.</p>
+      <ul>
+        <li>🧘 Guided healing prompts</li>
+        <li>📓 Save your reflections</li>
+        <li>🔁 Daily affirmations</li>
+      </ul>
+      <button id="unlock-btn" class="primary">Unlock (Test)</button>
+      <p class="muted">Test mode – replace with Stripe Checkout link in production.</p>
+    </div>
+    <div id="journal-area" class="hidden">
+      <label>Journal today
+        <textarea id="journal-text" rows="6" placeholder="Write what you’re feeling…"></textarea>
+      </label>
+      <button id="save-journal" class="secondary">Save</button>
+      <div id="journal-status" class="muted"></div>
+    </div>
+    <div class="actions">
+      <button class="secondary prev" data-prev="output">Back</button>
+      <button class="secondary" id="restart">Start over</button>
+    </div>
+  </section>
+
+  <footer><small>© BreakMate – for compassionate clarity.</small></footer>
+  <script src="app.js"></script>
+</body>
+</html>
